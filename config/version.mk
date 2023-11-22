@@ -16,10 +16,10 @@
 
 # Versioning System
 SPARK_NUM_VER_PRIMARY := 13
-SPARK_NUM_VER_SECONDARY := 9
+SPARK_NUM_VER_SECONDARY := 10
 TARGET_PRODUCT_SHORT := $(subst spark_,,$(SPARK_BUILD_TYPE))
 
-SPARK_BUILD_TYPE ?= UNOFFICIAL
+SPARK_BUILD_TYPE = CUSTOM
 
 # Only include Updater for official, weeklies, CI and nightly builds
 ifeq ($(filter-out OFFICIAL Official WEEKLIES NIGHTLY CI,$(SPARK_BUILD_TYPE)),)
