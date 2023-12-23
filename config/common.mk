@@ -164,6 +164,9 @@ ifeq ($(WITH_GAPPS), true)
 $(call inherit-product, vendor/gms/products/gms.mk)
 endif
 
+# Certification
+$(call inherit-product-if-exists, vendor/certification/config.mk)
+
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=log
