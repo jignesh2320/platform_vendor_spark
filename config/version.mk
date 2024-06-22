@@ -16,7 +16,7 @@
 
 # Versioning System
 SPARK_NUM_VER_PRIMARY := 13
-SPARK_NUM_VER_SECONDARY := 12
+SPARK_NUM_VER_SECONDARY := 13
 TARGET_PRODUCT_SHORT := $(subst spark_,,$(SPARK_BUILD_TYPE))
 
 SPARK_BUILD_TYPE = CUSTOM
@@ -27,10 +27,8 @@ ifeq ($(filter-out OFFICIAL Official WEEKLIES NIGHTLY CI,$(SPARK_BUILD_TYPE)),)
         Updates
 endif
 
-# Sign builds if building an official, weekly, CI and nightly build
-ifeq ($(filter-out OFFICIAL WEEKLIES NIGHTLY CI,$(SPARK_BUILD_TYPE)),)
-    PRODUCT_DEFAULT_DEV_CERTIFICATE := $(KEYS_LOCATION)
-endif
+# Private keys for signing
+-include vendor/spark-priv/keys/keys.mk
 
 # Set all versions
 BUILD_DATE := $(shell date -u +%Y%m%d)
