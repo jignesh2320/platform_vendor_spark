@@ -19,3 +19,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # (for devices that check this)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     net.tethering.noprovisioning=true
+
+## build bcr   
+ifeq ($(TARGET_BUILD_GOOGLE_TELEPHONY),true)
+$(call inherit-product, vendor/bcr/bcr.mk)
+endif
